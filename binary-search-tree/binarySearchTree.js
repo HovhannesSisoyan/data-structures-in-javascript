@@ -17,6 +17,24 @@ export default class BinarySearchTree {
             console.log(currentNode.value);
         }
     }
+    preorderTraversal(currentNode=this.root) {
+        if(!currentNode) return;
+        console.log(currentNode.value);
+        this.preorderTraversal(currentNode.left);
+        this.preorderTraversal(currentNode.right);
+    }
+    inorderTraversal(currentNode=this.root) {
+        if(!currentNode) return;
+        this.inorderTraversal(currentNode.left);
+        console.log(currentNode.value);
+        this.inorderTraversal(currentNode.right);
+    }
+    postorderTraversal(currentNode=this.root) {
+        if(!currentNode) return;
+        this.postorderTraversal(currentNode.left);
+        this.postorderTraversal(currentNode.right);
+        console.log(currentNode.value);
+    }
     insert(value) {
         const newNode = new TreeNode(value)
         let currentNode = this.root;

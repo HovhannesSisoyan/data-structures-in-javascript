@@ -7,4 +7,6 @@ binarySearchTree.insert(3);
 binarySearchTree.insert(8);
 binarySearchTree.insert(13);
 binarySearchTree.insert(18);
+binarySearchTree.postorderTraversal();
+console.log('----------------');
 binarySearchTree.breathFirstTraversal();
