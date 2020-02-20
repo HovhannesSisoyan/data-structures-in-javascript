@@ -5,6 +5,10 @@ export default class Stack {
         this.data = [];
     }
 
+    peek() {
+        return this.data[this.length-1]
+    }
+
     push(val) {
         this.data.push(val);
         this.length ++;
