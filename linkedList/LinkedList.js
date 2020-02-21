@@ -6,6 +6,8 @@ export default class LinkedList {
         this.data = null;
         this.length = 0;
     };
+
+    // O(1) time complexity
     addStart(val) {
         const newNode = new ListNode(val);
         if (!this.length) {
@@ -17,6 +19,8 @@ export default class LinkedList {
         };
         this.length ++;
     };
+
+    // O(1) time complexity
     addEnd(val) {
         const newNode = new ListNode(val);
         if (!this.length) {
@@ -27,7 +31,9 @@ export default class LinkedList {
         };
         this.length ++;
     };
-    delereStart() {
+
+    // O(1) time complexity
+    deleteStart() {
         let returnValue;
         if (!this.length) {
             returnValue =  null;
@@ -38,8 +44,25 @@ export default class LinkedList {
         };  
         return returnValue;
     };
-    delereEnd() {
 
+    // O(n) time complexity
+    deleteEnd() {
+        let returnValue;
+        if (!this.length) {
+            returnValue =  null;
+        } else {
+            let t = this.head;
+            let tNext = t.next;
+            while (tNext !== this.lastNode) {
+                tNext = tNext.next;
+                t = t.next;
+            };
+            returnValue = tNext.value;
+            t.next = tNext = null;
+            this.lastNode = t;
+            this.length --;
+        };
+        return returnValue;
     };
     logState() {      
         let t = this.head.next;     

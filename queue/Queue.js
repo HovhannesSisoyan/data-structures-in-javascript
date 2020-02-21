@@ -1,18 +1,20 @@
+import LinkedList from '../linkedList/LinkedList.js'
+
 export default class Queue {
     constructor() {
         this.length = 0;
         this.isEmpty = true;
-        this.data = [];
+        this.data = new LinkedList();
     }
 
     enqueue(val) {
-        this.data.push(val);
+        this.data.addEnd(val);
         this.length ++;
         this.isEmpty = false;
     }
     
     dequeue() {
-        const res = this.data.shift();
+        const res = this.data.deleteStart();
         this.length --;
         !this.length && (this.isEmpty = true); 
         return res;
@@ -20,6 +22,6 @@ export default class Queue {
     logState() {
         console.log(`isEmpty = ${this.isEmpty}`)
         console.log(`length = ${this.length}`)
-        console.log(`data = ${this.data}`)
-    }
-}
+        this.data.logState();
+    };
+};
